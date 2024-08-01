@@ -1,13 +1,131 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.table-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-box-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.search-box {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.graph-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.graph {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px;
+}
+
+.table-header {
+  background-color: #f8f9fa;
+}
+
+.table-row {
+  padding: 0;
+}
+
+.table-row td {
+  padding: 5px 10px;
+  line-height: 1.2;
+}
+
+header {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+#content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.table-wrapper {
+  overflow: hidden;
+}
+.visualization-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.visualization-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f9fa; /* Light grey background for distinction */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.visualization-heading {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.chart-container {
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    width: 100%;
+  }
 }

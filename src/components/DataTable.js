@@ -167,13 +167,6 @@ function DataTable() {
           </h4>
         );
       }
-      if (line.startsWith("###")) {
-        return (
-          <h5 key={index}>
-            <strong>{line.replace("###", "").trim()}</strong>
-          </h5>
-        );
-      }
       if (line.startsWith("**")) {
         return (
           <p key={index}>
@@ -225,13 +218,13 @@ function DataTable() {
       dataField: "STATE",
       text: "State",
       sort: true,
-      headerStyle: { width: "100px" },
+      headerStyle: { width: "150px" },
     },
     {
       dataField: "TEMP",
       text: "Temp",
       sort: true,
-      headerStyle: { width: "80px" },
+      headerStyle: { width: "60px" },
     },
     { dataField: "DO", text: "DO", sort: true, headerStyle: { width: "60px" } },
     { dataField: "pH", text: "pH", sort: true, headerStyle: { width: "60px" } },
@@ -295,6 +288,8 @@ function DataTable() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
+            <Nav.Link href="#visualization">Data Visualization</Nav.Link>
+            <Nav.Link href="#comparison">Water Quality Comparison</Nav.Link>
             <Nav.Link href="#" onClick={handleGenerateReport}>
               Generate AI Report
             </Nav.Link>
@@ -306,19 +301,23 @@ function DataTable() {
         value={search}
         onChange={setSearch}
       />
-      <BootstrapTable
-        keyField="id"
-        data={filteredData}
-        columns={columns}
-        pagination={pagination}
-        defaultSorted={defaultSorted}
-        striped
-        hover
-        condensed
-        headerClasses="table-header"
-        rowClasses="table-row"
-        wrapperClasses="table-wrapper"
-      />
+      <div style={{ overflowX: "auto" }}>
+        <BootstrapTable
+          keyField="id"
+          data={filteredData}
+          columns={columns}
+          pagination={pagination}
+          defaultSorted={defaultSorted}
+          striped
+          hover
+          condensed
+          headerClasses="table-header"
+          rowClasses="table-row"
+          wrapperClasses="table-wrapper"
+          bordered={false}
+          tableStyle={{ tableLayout: "fixed" }}
+        />
+      </div>
       {filteredData.length > 0 && (
         <Visualization
           key="visualization"
@@ -326,7 +325,7 @@ function DataTable() {
           search={search}
         />
       )}
-      <Card className="compare-form mt-5">
+      <Card id="comparison" className="compare-form mt-5">
         <Card.Header>
           <h3 className="text-center">Compare Water Quality Data</h3>
         </Card.Header>
@@ -476,6 +475,10 @@ function DataTable() {
                         dataField: compareInput.parameter,
                         text: compareInput.parameter,
                       },
+                      {
+                        dataField: compareInput.secondary_parameter,
+                        text: compareInput.secondary_parameter,
+                      },
                     ]}
                     striped
                     hover
@@ -483,6 +486,7 @@ function DataTable() {
                     headerClasses="table-header"
                     rowClasses="table-row"
                     wrapperClasses="table-wrapper"
+                    bordered={false}
                   />
                 </Card.Body>
               </Card>
@@ -498,6 +502,10 @@ function DataTable() {
                         dataField: compareInput.parameter,
                         text: compareInput.parameter,
                       },
+                      {
+                        dataField: compareInput.secondary_parameter,
+                        text: compareInput.secondary_parameter,
+                      },
                     ]}
                     striped
                     hover
@@ -505,6 +513,7 @@ function DataTable() {
                     headerClasses="table-header"
                     rowClasses="table-row"
                     wrapperClasses="table-wrapper"
+                    bordered={false}
                   />
                 </Card.Body>
               </Card>

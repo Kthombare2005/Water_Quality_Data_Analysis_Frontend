@@ -128,4 +128,14 @@ header h1 {
   .chart-container {
     width: 100%;
   }
+
 }
+.nav-link {
+  cursor: pointer;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff; /* Underline active link */
+}
+
